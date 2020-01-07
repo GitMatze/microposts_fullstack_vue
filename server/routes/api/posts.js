@@ -27,14 +27,15 @@ router.delete('/:id', async (req, res) => {
 });
 
 async function loadPostsCollection() {
+  const uri = "mongodb+srv://user2:password222@cluster0-njwtc.mongodb.net/test?retryWrites=true&w=majority";
   const client = await mongodb.MongoClient.connect(
-    'mongodb://YOUR_OWN_MONGODB',
+    uri,
     {
       useNewUrlParser: true
     }
   );
 
-  return client.db('vue_express').collection('posts');
+  return client.db('solardb').collection('SolarLog');
 }
 
 module.exports = router;
