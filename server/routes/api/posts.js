@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
   const posts = await loadPostsCollection();
   await posts.insertOne({
     pv: req.body.pv,
+    grid: req.body.grid,
     timestamp: new Date()
   });
   res.status(201).send();
