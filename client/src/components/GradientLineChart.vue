@@ -66,7 +66,7 @@ export default {
           yAxes: [{
               scaleLabel: {
                   display: true,
-                  labelString: 'Power in Wh'
+                  labelString: 'Power in W'
               },
             ticks: {
               beginAtZero: false,              

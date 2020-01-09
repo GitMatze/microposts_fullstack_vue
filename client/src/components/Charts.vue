@@ -2,7 +2,6 @@
   <div class="content">
     <div class="container"> 
         <div class="Search__container">       
-        <div class="Search__settings">
             <input
                 v-model="newPVValue"
                 class="Search__input"
@@ -16,7 +15,6 @@
                 placeholder="Enter Grid Power"
                 type="search" name="search">
           <button class="Search__button" @click="postData">Add Data Point</button>          
-        </div>
         <div class="error-message" v-if="showError">
             {{ error }}
         </div>
@@ -24,7 +22,7 @@
       <hr>
       <div class="Chart__container">
         <div class="Chart__title">
-          <h2>Power of PV and Grid in Wh </h2>
+          <h2>Power of PV and Grid </h2>
           <button class="Search__button" @click="getData"> Reload Chart </button>
 
         </div>
@@ -150,7 +148,7 @@
     height: 1px;
     border: 0;
     border-top: 1px solid color(solitude);
-    margin: 1em 0;
+    margin: 0.3em 0;
     padding: 0;
   }
 
@@ -203,8 +201,8 @@
 
     @include has(button) {
       appearance: none;
-      padding:20;
-      margin-left: rem(20);
+      padding:rem(10) rem(3);
+      margin: rem(5) rem(20);
       border: 1px #c5ae92;
       border-radius: 3px;
       cursor: pointer;
@@ -255,13 +253,13 @@
     background-color: #fff;
     box-shadow: 0 15px 30px 0 rgba(0,0,0,.11), 0 5px 15px 0 rgba(0,0,0,.08);
     padding: rem(20) rem(40);
-    margin: rem(50) 0;
+    margin: rem(30) 0;
   }
 
   .Chart__title {
     display: flex;
     flex-direction: row;
-    margin-bottom: rem(20);
+    // margin-bottom: rem(20);
     justify-content: space-between;
 
     h2 {
