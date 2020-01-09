@@ -1,0 +1,31 @@
+<template>
+  <div id="app">
+    <Header msg="Welcome to Your Vue.js App"/>
+    <Charts msg="Welcome to Your Vue.js App"/>
+  </div>
+</template>
+
+<script>
+import Charts from './components/Charts.vue'
+import Header from './components/Header.vue'
+
+
+export default {
+  name: 'app',
+  components: {
+    Charts,
+    Header
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0px;
+}
+</style>
