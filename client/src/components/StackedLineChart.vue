@@ -23,12 +23,12 @@ Chart.controllers.StackedLine = Chart.controllers.line.extend({
     var ctx = this.chart.chart.ctx;
     var gradient = ctx.createLinearGradient(0, top, 0, bottom);
     var ratio = Math.min((zero - top) / (bottom - top), 1);
-    gradient.addColorStop(0, 'rgba(207, 180, 149, 0.9)');
-    gradient.addColorStop(ratio, 'rgba(207, 180, 149, 0.9)');
-    gradient.addColorStop(ratio, 'rgba(240, 207, 133, 0.4)');
-    gradient.addColorStop(1, 'rgba(240, 207, 133, 0.4)');
+    gradient.addColorStop(0, 'rgba(188, 212, 151, 0.9)');
+    gradient.addColorStop(ratio, 'rgba(188, 212, 151, 0.9)');
+    gradient.addColorStop(ratio, 'rgba(248, 212, 83, 0.5)');
+    gradient.addColorStop(1, 'rgba(248, 212, 83, 0.5)');
     this.chart.data.datasets[0].backgroundColor = gradient;
-    this.chart.data.datasets[1].backgroundColor = 'rgba(240, 207, 133, 0.4)';
+    this.chart.data.datasets[1].backgroundColor = 'rgba(248,212,83, 0.5)';
     
     this.chart.data.datasets[0].pointRadius = 0
     this.chart.data.datasets[1].pointRadius = 0

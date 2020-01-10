@@ -1,6 +1,19 @@
 <template>
   <div class="content">
     <div class="container"> 
+        <!-- CURRENT RESULTS -->
+      <div class="Status__container">
+        <div class="status_bar">
+        <h2><span>LIVE</span> </h2>  
+          <h2>PV: 3.2 kW/h </h2>
+          <h2>Grid: -2.8 kW/h </h2>
+          <h2 id="time">TIME</h2>
+        </div>
+      </div>
+
+      <hr>
+
+      
         <div class="Search__container">       
             <input
                 v-model="newPVValue"
@@ -19,7 +32,9 @@
             {{ error }}
         </div>
       </div>     
+      
       <hr>
+
       <div class="Chart__container">
         <div class="Chart__title">
           <h2>Power of PV and Grid </h2>
@@ -53,6 +68,8 @@
   import GradientLineChart from './GradientLineChart'
   import PostService from '../PostService'
 
+  import moment from 'moment'
+
   export default {
     components: { 
         GradientLineChart,
@@ -72,7 +89,8 @@
     },
 
     async created() {
-        this.getData()        
+        this.getData()
+        setInterval(this.updateClock, 1000);       
     },    
     methods: {
         async postData() {
@@ -135,6 +153,10 @@
             } catch(err) {
                 this.error = err.message
             }
+        },
+        updateClock() {
+          var time = moment(new Date).format('hh:mm:ss')
+          document.getElementById('time').innerHTML = ['Time', time].join(': ')
         }
     }
   }
@@ -201,19 +223,19 @@
 
     @include has(button) {
       appearance: none;
-      padding:rem(10) rem(3);
+      padding:rem(8) rem(3);
       margin: rem(5) rem(20);
-      border: 1px #c5ae92;
+      border: 1px $button-color ;
       border-radius: 3px;
       cursor: pointer;
       text-align: center;
       font-size:15;
       font-weight: 300;
-      color: #fff;
-      background: #d8a770;
+      color: rgb(255, 255, 255);
+      background: $button-color;
 
       @include hover-active-states {
-        background: darken(#cfb495, 10%);
+        background: darken($button-color, 10%);
       }
     }
 
@@ -247,6 +269,58 @@
         }
     }
   }
+  
+  .Status__container {
+    border-radius: $base-border-radius;
+    background-color: #fff;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,.11), 0 5px 15px 0 rgba(0,0,0,.08);
+    padding: rem(10) 3%; // rem(20) rem(40);
+    margin: rem(30) 0;
+    background-color: #f0eeee
+  }
+
+  .status_bar {
+    // max-width: rem(800);
+    display: flex;
+    flex-direction: row;
+    // margin-bottom: rem(20);
+    justify-content: space-around;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      color: color(fjord);
+      margin: 0;
+      font-weight: 600;
+      font-size: rem(16);
+      // background-color: rgb(128, 128, 128);
+      > span {
+        //color: #685000;
+        font-size: rem(20);
+        font-weight: rem(400)
+        //margin-left: rem(25);
+        //display: block;
+        //padding: rem(25) rem(20);
+        //background-color: #d6b045;
+        //justify-content: flex-start;
+        //float: right;
+
+      }
+     
+    }
+  }
+
+  @media (max-width: 600px) {
+    .status_bar h2 span {
+      display: none;
+    }
+  }
+
+  #time {
+    min-width:rem(120)
+  }
+
+
 
   .Chart__container {
     border-radius: $base-border-radius;

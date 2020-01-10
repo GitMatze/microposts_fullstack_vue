@@ -13,12 +13,12 @@ Chart.controllers.GradientLineChart = Chart.controllers.line.extend({
     var ctx = this.chart.chart.ctx;
     var gradient = [ctx.createLinearGradient(0, 0, 0, 80),
                         ctx.createLinearGradient(0, 0, 0, 80)]
-    gradient[0].addColorStop(0, 'rgba(240, 207, 133, 0.9)')
-    gradient[0].addColorStop(0.5, 'rgba(240, 207, 133, 0.7)')
-    gradient[0].addColorStop(1, 'rgba(240, 207, 133, 0.4)')
-    gradient[1].addColorStop(0, 'rgba(207, 180, 149, 0.9)')
-    gradient[1].addColorStop(0.5, 'rgba(207, 180, 149, 0.7)')
-    gradient[1].addColorStop(1, 'rgba(207, 180, 149, 0.4)')
+    gradient[0].addColorStop(0, 'rgba(248, 212, 83, 0.9)')
+    gradient[0].addColorStop(0.5, 'rgba(248, 212, 83, 0.6)')
+    gradient[0].addColorStop(1, 'rgba(248, 212, 83, 0.3)')
+    gradient[1].addColorStop(0, 'rgba(188, 212, 151, 0.9)')
+    gradient[1].addColorStop(0.5, 'rgba(188, 212, 151, 0.6)')
+    gradient[1].addColorStop(1, 'rgba(188, 212, 151, 0.3)')
 
     this.chart.data.datasets[1].backgroundColor = gradient[0];
     this.chart.data.datasets[0].backgroundColor = gradient[1]
@@ -32,8 +32,8 @@ Chart.controllers.GradientLineChart = Chart.controllers.line.extend({
     this.chart.data.datasets[0].cubicInterpolationMode = 'monotone'
     this.chart.data.datasets[1].cubicInterpolationMode = 'monotone'
 
-    this.chart.data.datasets[0].borderColor = 'rgba(207, 180, 149, 0.9)'
-    this.chart.data.datasets[1].borderColor = 'rgba(240, 207, 133, 0.9)'
+    this.chart.data.datasets[0].borderColor = 'rgba(188, 212, 83, 1)'
+    this.chart.data.datasets[1].borderColor = 'rgba(248, 212, 83, 1)'
 
 
     return Chart.controllers.line.prototype.update.apply(this, arguments);

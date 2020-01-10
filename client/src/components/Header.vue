@@ -16,7 +16,7 @@
   @import "../assets/styles/_variables.scss";
 
 .header {
-  @include container();  
+  // @include container();  
   font-family: Tahoma, Geneva, sans-serif;
   padding: rem(1);
   text-align: center;
